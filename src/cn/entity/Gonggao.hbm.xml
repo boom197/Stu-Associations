@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 1 配置类和表对应 
+		class标签
+		name属性：实体类全路径
+		table属性：数据库表名称
+	-->
+	<class name="cn.entity.Gonggao" table="Gonggao">
+		<id name="g_id" column="g_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="g_content" column="g_content"></property>
+		<property name="g_time" column="g_time"></property>
+		<property name="g_name" column="g_name"></property>
+		<many-to-one name="society" class="cn.entity.Society" column="t_id"></many-to-one>
+	</class>
+</hibernate-mapping>

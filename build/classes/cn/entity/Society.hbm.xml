@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 1 配置类和表对应 
+		class标签
+		name属性：实体类全路径
+		table属性：数据库表名称
+	-->
+	<class name="cn.entity.Society" table="Society">
+		<id name="t_id" column="t_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="t_number" column="t_number"></property>
+		<property name="t_pass" column="t_pass"></property>
+		<property name="t_name" column="t_name"></property>
+		<property name="t_society" column="t_society"></property>
+		<property name="t_time" column="t_time"></property>
+		<property name="t_jianjie" column="t_jianjie"></property>
+		<property name="t_phone" column="t_phone"></property>
+		
+		<!-- 在角色里面表示所有用户，使用set标签 -->
+		<set name="setStu" table="ss" cascade="save-update" lazy="false">
+			<!-- 角色在第三张表外键 -->
+			<key column="t_id"></key>
+			<many-to-many class="cn.entity.Stu" column="s_id" ></many-to-many>
+		</set>
+		<set name="setPost" cascade="save-update,delete" lazy="false">
+			<!-- 角色在第三张表外键 -->
+			<key column="t_id"></key>
+			<one-to-many class="cn.entity.Post" ></one-to-many>
+		</set>
+		<set name="setGonggao" cascade="save-update,delete" lazy="false">
+			<!-- 角色在第三张表外键 -->
+			<key column="t_id"></key>
+			<one-to-many class="cn.entity.Gonggao" ></one-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

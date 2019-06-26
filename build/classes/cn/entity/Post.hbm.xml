@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 1 配置类和表对应 
+		class标签
+		name属性：实体类全路径
+		table属性：数据库表名称
+	-->
+	<class name="cn.entity.Post" table="Post">
+		<id name="z_id" column="z_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="z_name" column="z_name"></property>
+		<property name="z_zhiwei" column="z_zhiwei"></property>
+		<property name="z_jieshao" column="z_jieshao"></property>
+		<many-to-one name="z_society" class="cn.entity.Society" column="t_id"></many-to-one>
+		
+	</class>
+</hibernate-mapping>

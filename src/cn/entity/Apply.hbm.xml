@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 1 配置类和表对应 
+		class标签
+		name属性：实体类全路径
+		table属性：数据库表名称
+	-->
+	<class name="cn.entity.Apply" table="Apply">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="apply_name" column="apply_name"></property>
+		<property name="apply_post" column="apply_post"></property>
+		<property name="apply_user" column="apply_user"></property>
+		<property name="apply_time" column="apply_time"></property>
+		<property name="apply_is" column="apply_is"></property>
+		<property name="apply_why" column="apply_why"></property>
+		
+	</class>
+</hibernate-mapping>
